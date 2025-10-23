@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modelo 3D - Palabrín</title>
+    <style>
+        /* Aseguramos que el visor ocupe el 80% del ancho y 600px de alto. */
+        model-viewer {
+            width: 80%;
+            height: 600px;
+            margin: 0 auto; /* Centra el modelo horizontalmente */
+            display: block; /* Necesario para que el margin auto funcione */
+        }
+        /* Estilos opcionales para la página */
+        body {
+            font-family: sans-serif;
+            text-align: center;
+        }
+    </style>
+    
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
+</head>
+<body>
+
+    <h1>Modelo 3D de Palabrín</h1>
+
+    <model-viewer 
+        src="Palabrín 2.glb" 
+        ios-src="Palabrín 2.usdz"   <-- ¡Línea añadida para compatibilidad con iOS! 🚀
+        ar 
+        ar-modes="webxr scene-viewer quick-look" 
+        camera-controls 
+        tone-mapping="neutral" 
+        poster="poster.webp" 
+        shadow-intensity="1"
+    >
+        <button slot="ar-button" id="ar-button">
+            Ver en Realidad Aumentada
+        </button>
+    </model-viewer>
+
+</body>
+</html>
