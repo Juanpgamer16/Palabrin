@@ -9,7 +9,7 @@
     --diversia-light-bg: #fdfdfd;
 }
 
-/* ESTILOS GLOBALES Y FONDO */
+/* ESTILOS GLOBALES Y FONDO */ 
 body {
     font-family: 'Nunito', sans-serif;
     text-align: center;
@@ -146,4 +146,5 @@ model-viewer {
         padding: 10px 18px;
     }
 }
+
 
