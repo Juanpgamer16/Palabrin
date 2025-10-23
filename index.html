@@ -23,26 +23,29 @@
         <h1>MODELO 3D DE PALABRÍN</h1>
 
         <model-viewer 
-            src="Palabrín 2.glb" 
-            ios-src="Palabrín 2.usdz"   
-            ar 
-            ar-modes="webxr scene-viewer quick-look" 
-            camera-controls 
-            tone-mapping="neutral" 
-            poster="poster.webp" 
-            shadow-intensity="1"
-            
-            /* CLAVE AR: Permite al usuario escalar el modelo en el espacio */
-            ar-scale="auto" 
-        >
-            <button slot="ar-button" id="ar-button-js"> 
-                ✨ VER EN REALIDAD AUMENTADA ✨
-            </button>
-        </model-viewer>
+    src="Palabrín 2.glb" 
+    ios-src="Palabrín 2.usdz"   
+    ar 
+    ar-modes="webxr scene-viewer quick-look" 
+    camera-controls 
+    tone-mapping="neutral" 
+    poster="poster.webp" 
+    shadow-intensity="1"
+    
+    /* PROPIEDADES AÑADIDAS/VERIFICADAS */
+    ar-scale="auto" 
+    ar-placement="floor"
+    scale="1 1 1" 
+>
+    <button slot="ar-button" id="ar-button-js"> 
+        ✨ VER EN REALIDAD AUMENTADA ✨
+    </button>
+</model-viewer>
         
     </div> <script src="main.js"></script>
 
 </body>
 </html>
+
 
 
