@@ -1,16 +1,12 @@
-/* Importar una fuente compatible con el estilo 'Diversia' (ej. 'Nunito') */
-/* Para que funcione, deberías añadir esto en el <head> de tu HTML: */
-/* <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet"> */
-
-/* Colores de la marca Diversia (ejemplos aproximados, ajusta según necesidad) */
+/* Colores de la marca Diversia */
 :root {
-    --diversia-blue: #347deb;   /* Azul para títulos y elementos principales */
-    --diversia-green: #2ecc71;  /* Verde para acentos */
-    --diversia-yellow: #f1c40f; /* Amarillo vibrante */
-    --diversia-red: #e74c3c;    /* Rojo */
-    --diversia-purple: #9b59b6; /* Morado, si lo quieres usar */
-    --diversia-dark: #2c3e50;   /* Color oscuro para el lápiz/texto principal */
-    --diversia-light-bg: #fdfdfd; /* Fondo casi blanco */
+    --diversia-blue: #347deb;
+    --diversia-green: #2ecc71;
+    --diversia-yellow: #f1c40f;
+    --diversia-red: #e74c3c;
+    --diversia-purple: #9b59b6;
+    --diversia-dark: #2c3e50;
+    --diversia-light-bg: #fdfdfd;
 }
 
 /* ESTILOS GLOBALES Y FONDO */
@@ -30,21 +26,16 @@ body {
 .left-bar, .right-bar {
     position: fixed;
     top: 0;
-    width: 60px; /* ¡ANCHO DE LAS BARRAS AUMENTADO! */
+    width: 60px; /* Ancho base */
     height: 100%;
     z-index: 10;
     background: linear-gradient(to bottom, var(--diversia-blue), var(--diversia-green), var(--diversia-yellow), var(--diversia-red), var(--diversia-purple));
 }
 
-.left-bar {
-    left: 0;
-}
+.left-bar { left: 0; }
+.right-bar { right: 0; }
 
-.right-bar {
-    right: 0;
-}
-
-/* CONTENIDO PRINCIPAL CENTRADO Y CON FONDO BLANCO */
+/* CONTENIDO PRINCIPAL CENTRADO */
 .main-content-wrapper {
     position: relative;
     z-index: 5;
@@ -55,16 +46,17 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
     border-radius: 5px;
     min-height: 100vh;
+    box-sizing: border-box; /* Asegura que el padding se maneje correctamente */
 }
 
 /* ESTILO DEL LOGO */
 .logo-container {
-    margin-bottom: 20px; /* Espacio debajo del logo */
-    padding-top: 20px; /* Espacio encima del logo */
+    margin-bottom: 20px;
+    padding-top: 20px;
 }
 
 .diversia-logo {
-    max-width: 250px; /* Tamaño máximo del logo (ajusta si es necesario) */
+    max-width: 250px;
     height: auto;
 }
 
@@ -81,14 +73,14 @@ h1 {
 
 /* ESTILO DEL VISOR 3D */
 model-viewer {
-    width: 95%;
+    width: 95%; /* Se ajustará al contenedor */
     max-width: 900px;
     height: 600px;
     margin: 40px auto;
     display: block;
     border-radius: 25px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-    border: 8px solid var(--diversia-yellow); /* ¡BORDE MÁS ANCHO! */
+    border: 8px solid var(--diversia-yellow);
     background-color: var(--diversia-light-bg);
 }
 
@@ -118,26 +110,43 @@ model-viewer {
     transform: translateY(0) scale(0.98);
 }
 
-/* Medias Queries para responsividad */
-@media (max-width: 768px) {
+/* ======================================= */
+/* MEDIA QUERY: OPTIMIZACIÓN PARA MÓVILES */
+/* ======================================= */
+@media (max-width: 600px) {
+    
+    /* 1. BARRAS LATERALES más delgadas */
     .left-bar, .right-bar {
-        width: 30px; /* Barras más delgadas en móviles, pero aún más anchas que antes */
+        width: 10px; /* Muy delgadas para no ocupar mucho espacio */
     }
-    .diversia-logo {
-        max-width: 180px; /* Logo más pequeño en móviles */
-    }
-    h1 {
-        font-size: 2.2em;
-    }
-    model-viewer {
-        height: 450px;
-        margin: 20px auto;
-    }
-    #ar-button-js {
-        font-size: 1em;
-        padding: 10px 20px;
-    }
+    
+    /* 2. CONTENIDO PRINCIPAL más centrado */
     .main-content-wrapper {
-        padding: 20px 10px;
+        padding: 10px 10px; /* Reducir el padding horizontal */
+    }
+
+    /* 3. TÍTULO más pequeño */
+    h1 {
+        font-size: 1.8em;
+        padding-bottom: 15px;
+    }
+
+    /* 4. LOGO más pequeño */
+    .diversia-logo {
+        max-width: 150px;
+    }
+
+    /* 5. VISOR 3D optimizado */
+    model-viewer {
+        width: 100%; /* Ocupa todo el ancho */
+        height: 400px; /* Altura más cómoda para móviles */
+        margin: 20px auto;
+        border-width: 4px; /* Borde más fino para el móvil */
+    }
+
+    /* 6. BOTÓN AR más compacto */
+    #ar-button-js {
+        font-size: 0.9em;
+        padding: 10px 18px;
     }
 }
